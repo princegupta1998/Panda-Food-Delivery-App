@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import "./header.css";
 import Logo from "../../assets/images/Panda_logo.webp";
 import CratIcon from "../../assets/svgs/cart_icon.svg";

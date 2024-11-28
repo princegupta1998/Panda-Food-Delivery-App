@@ -1,3 +1,11 @@
 #home {
-  height: 80vh;
+  padding: 5rem 1rem;
+}
+
+.res-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin: 2.5rem 0;
 }
