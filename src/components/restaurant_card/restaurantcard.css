@@ -1,17 +1,30 @@
 .card-wrapper {
-  width: 23.5%;
   box-shadow: 1px 1px 10px #e0e0e09e;
   border-radius: 1.2rem;
+  cursor: pointer;
+}
+
+.card-wrapper:hover {
+  box-shadow: 1px 1px 5px #71b6694a;
+}
+
+.card-wrapper:hover .card-title {
+  color: var(--primary-color);
 }
 
 .card-image img {
   width: 100%;
-  height: auto;
+  height: 200px;
   border-radius: 1.2rem;
+  object-fit: cover;
 }
 
 .card-information {
   padding: 0.5rem 1rem 1rem;
+}
+
+.card-title {
+  transition: all 0.3s ease-in-out;
 }
 
 .card-rating-time {
