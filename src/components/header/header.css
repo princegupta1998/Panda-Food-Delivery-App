@@ -1,14 +1,11 @@
-.container {
-  width: 1440px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
+#header {
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
 }
 
-#header {
+#header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
 }
 
 .logo img {

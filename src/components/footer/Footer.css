@@ -1,4 +1,4 @@
-#footer {
+#footer .container {
   display: flex;
   justify-content: space-between;
 }
@@ -11,4 +11,8 @@
 .footer-nav {
   display: flex;
   gap: 2rem;
+}
+
+.footer-nav-item a {
+  color: var(--text-color);
 }
