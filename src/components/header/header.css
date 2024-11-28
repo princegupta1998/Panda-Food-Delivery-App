@@ -1,0 +1,39 @@
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+.navbar_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+.nav-item a {
+  color: var(--text-color);
+}
+
+.header-cart {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}

@@ -1,11 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./App.css";
+import Header from "../src/components/header/Header";
+import Home from "../src/components/home/Home";
+import Footer from "../src/components/footer/Footer";
 
 const App = () => {
   return (
     <div>
-      <h1>Hello i am from App.js</h1>
+      <Header />
+      {/* <Home /> */}
+      <Footer />
     </div>
   );
 };

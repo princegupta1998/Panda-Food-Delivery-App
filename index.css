@@ -1,3 +1,10 @@
+:root {
+  --primary-color: #61b35c;
+  --secondary-color: #161a1f;
+  --hover-color: #7ed879;
+  --text-color: #414449;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +12,16 @@
   outline: 0;
   list-style-type: none;
   font-family: "DM Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: all 0.3s;
+}
+
+a:hover {
+  color: var(--hover-color);
 }
 
 html,
