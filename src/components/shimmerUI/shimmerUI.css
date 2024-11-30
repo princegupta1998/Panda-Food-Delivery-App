@@ -1,0 +1,33 @@
+.shimmer-wrapper {
+  padding: 5rem 1rem;
+}
+
+.shimmer-heading {
+  height: 50px;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 1.2rem;
+  background-color: rgba(233, 233, 233, 0.605);
+}
+
+.shimmer-filter-item {
+  margin: 2rem 0;
+  height: 45px;
+  width: 100%;
+  max-width: 125px;
+  border-radius: 2rem;
+  background-color: rgba(233, 233, 233, 0.605);
+  border: none;
+}
+
+.shimmer-card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+}
+
+.shimmer-card {
+  height: 325px;
+  border-radius: 1.2rem;
+  background-color: rgba(233, 233, 233, 0.605);
+}

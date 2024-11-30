@@ -1,8 +1,11 @@
 import "./header.css";
 import Logo from "../../assets/images/Panda_logo.webp";
 import CratIcon from "../../assets/svgs/cart_icon.svg";
+import { useState } from "react";
 
 const Header = () => {
+  const [btnaccount, setBtnAccount] = useState("Login");
+
   return (
     <header id="header">
       <div className="container">
@@ -28,6 +31,16 @@ const Header = () => {
                 Cart
               </a>
             </li>
+            <button
+              className="account-btn button"
+              onClick={() => {
+                btnaccount == "Login"
+                  ? setBtnAccount("Logout")
+                  : setBtnAccount("Login");
+              }}
+            >
+              {btnaccount}
+            </button>
           </ul>
         </nav>
       </div>
