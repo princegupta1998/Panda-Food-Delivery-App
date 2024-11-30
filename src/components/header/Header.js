@@ -1,4 +1,3 @@
-import React from "react";
 import "./header.css";
 import Logo from "../../assets/images/Panda_logo.webp";
 import CratIcon from "../../assets/svgs/cart_icon.svg";
@@ -8,7 +7,9 @@ const Header = () => {
     <header id="header">
       <div className="container">
         <div className="logo">
-          <img src={Logo} alt="Panda food delivery" loading="lazy" />
+          <a href="/">
+            <img src={Logo} alt="Panda food delivery" loading="lazy" />
+          </a>
         </div>
         <nav id="navbar">
           <ul className="navbar_wrapper">

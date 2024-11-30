@@ -1,4 +1,4 @@
-import React from "react";
+import { CDN_URL } from "../../utils/constants";
 import "./restaurantcard.css";
 import RatingIcon from "../../assets/svgs/rating_icon.svg";
 
@@ -17,10 +17,7 @@ const RestaurantCard = (props) => {
     <div className="card-wrapper">
       <div className="card-image">
         <img
-          src={
-            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            cloudinaryImageId
-          }
+          src={CDN_URL + cloudinaryImageId}
           alt="restaurant"
           loading="lazy"
         />
