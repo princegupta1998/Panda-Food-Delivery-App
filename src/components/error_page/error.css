@@ -1,0 +1,22 @@
+#error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#error img {
+  width: 20%;
+  height: auto;
+}
+
+#error h1 {
+  font-size: 6rem;
+  line-height: 7rem;
+}
+
+#error h3 {
+  font-size: 3rem;
+  line-height: 4rem;
+}
