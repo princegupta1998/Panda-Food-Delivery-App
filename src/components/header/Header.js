@@ -2,6 +2,7 @@ import "./header.css";
 import Logo from "../../assets/images/Panda_logo.webp";
 import CratIcon from "../../assets/svgs/cart_icon.svg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [btnaccount, setBtnAccount] = useState("Login");
@@ -10,26 +11,26 @@ const Header = () => {
     <header id="header">
       <div className="container">
         <div className="logo">
-          <a href="/">
+          <Link to="/">
             <img src={Logo} alt="Panda food delivery" loading="lazy" />
-          </a>
+          </Link>
         </div>
         <nav id="navbar">
           <ul className="navbar_wrapper">
             <li className="nav-item">
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a href="/">About Us</a>
+              <Link to="/about-us">About Us</Link>
             </li>
             <li className="nav-item">
-              <a href="/">Contact Us</a>
+              <Link to="/contact-us">Contact Us</Link>
             </li>
             <li className="nav-item">
-              <a href="/" className="header-cart">
+              <Link to="/" className="header-cart">
                 <img src={CratIcon} alt="cart" loading="lazy" />
                 Cart
-              </a>
+              </Link>
             </li>
             <button
               className="account-btn button"

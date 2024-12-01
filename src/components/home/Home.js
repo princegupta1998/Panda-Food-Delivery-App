@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./home.css";
 import RestaurantCard from "../restaurant_card/RestaurantCard";
 import Shimmer from "../shimmerUI/Shimmer";
+import { RES_API } from "../../utils/constants";
 
 const Home = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -11,21 +12,18 @@ const Home = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    console.log("useffect");
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.3965071&lng=80.1250479&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(RES_API);
 
     const json = await data.json();
     setRestaurantList(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilterdRestaurant(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
