@@ -6,9 +6,12 @@ import Shimmer from "../shimmerUI/Shimmer";
 
 const Home = () => {
   const [restaurantList, setRestaurantList] = useState([]);
+  const [filterdRestaurant, setFilterdRestaurant] = useState([]);
   const [isActive, setIsActive] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
+    console.log("useffect");
     fetchData();
   }, []);
 
@@ -19,6 +22,9 @@ const Home = () => {
 
     const json = await data.json();
     setRestaurantList(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilterdRestaurant(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
@@ -36,13 +42,38 @@ const Home = () => {
       <h1 className="home-heading">Top restaurant chains in Noida</h1>
       <div className="res-wrapper">
         <div className="res-filters">
+          <div className="search-wrapper">
+            <input
+              className="search-box"
+              type="search"
+              placeholder="Search for restaurants"
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
+            <button
+              className="search-btn button"
+              onClick={() => {
+                // console.log(searchText);
+                const searchList = restaurantList.filter((res) => {
+                  return res.info.name
+                    .toLowerCase()
+                    .includes(searchText.toLowerCase());
+                });
+                setFilterdRestaurant(searchList);
+              }}
+            >
+              Search
+            </button>
+          </div>
           <button
             className={`res-filter-item button ${isActive ? "active" : ""}`}
             onClick={() => {
-              filterdList = restaurantList.filter(
+              const filterdList = filterdRestaurant.filter(
                 (res) => res.info.avgRating > 4
               );
-              setRestaurantList(filterdList);
+              setFilterdRestaurant(filterdList);
               setIsActive(!isActive);
               // console.log(filterdList);
             }}
@@ -51,7 +82,7 @@ const Home = () => {
           </button>
         </div>
         <div className="res-cards">
-          {restaurantList.map((restaurant) => (
+          {filterdRestaurant.map((restaurant) => (
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
           ))}
         </div>

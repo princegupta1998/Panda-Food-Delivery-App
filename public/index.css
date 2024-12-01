@@ -41,6 +41,10 @@ video {
   display: block;
 }
 
+input:focus {
+  border: 1px solid var(--primary-color);
+}
+
 .button {
   font-size: 1rem;
   font-weight: 500;
