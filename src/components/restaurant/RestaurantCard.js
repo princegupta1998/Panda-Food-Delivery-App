@@ -1,5 +1,5 @@
 import { CDN_URL } from "../../utils/constants";
-import "./restaurantcard.css";
+import "./restaurant.css";
 import RatingIcon from "../../assets/svgs/rating_icon.svg";
 
 const RestaurantCard = (props) => {
