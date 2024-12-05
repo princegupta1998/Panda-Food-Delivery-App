@@ -34,16 +34,16 @@ const RestaurantDetails = () => {
       </p>
       <p>{cuisines.join(", ")}</p>
 
-      {cards.map((menuWithTitle) => {
+      {cards.map((menuWithTitle, index) => {
         const title = menuWithTitle?.card?.card?.title;
         const menu = menuWithTitle?.card?.card?.itemCards;
 
         return (
-          <div>
+          <div key={index}>
             <h3>{title}</h3>
             <ul>
               {menu?.map((item) => (
-                <li>
+                <li key={item?.card?.info?.id}>
                   {item?.card?.info?.name}- {"₹"}
                   {item?.card?.info?.price / 100 ||
                     item?.card?.info?.defaultPrice / 100}

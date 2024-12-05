@@ -6,3 +6,6 @@ export const CDN_URL =
 
 export const MENU_API =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=27.3965071&lng=80.1250479&restaurantId=";
+
+export const userBio =
+  "I'm a Creative Front-End Developer** with 2.5+ years of experience, specializing in React.js and modern front-end technologies. I build responsive, scalable web applications that prioritize seamless user experiences and accessibility.";
