@@ -27,12 +27,6 @@ const Home = () => {
     );
   };
 
-  // conditional rendering
-  // if (restaurantList.length === 0) {
-  //   return <Shimmer />;
-  // }
-  // OR
-
   return restaurantList.length === 0 ? (
     <Shimmer />
   ) : (
