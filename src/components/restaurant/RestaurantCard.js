@@ -1,6 +1,7 @@
 import { CDN_URL } from "../../utils/constants";
 import "./restaurant.css";
 import RatingIcon from "../../assets/svgs/rating_icon.svg";
+import Shimmer from "../shimmerUI/Shimmer";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
@@ -36,6 +37,22 @@ const RestaurantCard = (props) => {
       </div>
     </div>
   );
+};
+
+export const withOffersLabel = (RestaurantCard) => {
+  return (props) => {
+    const { resData } = props;
+    const { aggregatedDiscountInfoV3, ...rest } = resData?.info;
+    console.log(props);
+    return (
+      <div className="relative">
+        <label className="absolute text-lg font-black text-white top-40 left-4 bg-black bg-opacity-60 px-2 rounded-md ">
+          {`${aggregatedDiscountInfoV3?.header} ${aggregatedDiscountInfoV3?.subHeader}`}
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

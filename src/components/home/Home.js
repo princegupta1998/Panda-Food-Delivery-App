@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./home.css";
-import RestaurantCard from "../restaurant/RestaurantCard";
+import RestaurantCard, { withOffersLabel } from "../restaurant/RestaurantCard";
 import Shimmer from "../shimmerUI/Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurantList from "../../utils/useRestaurantList";
@@ -10,6 +10,8 @@ const Home = () => {
     useRestaurantList();
   const [isActive, setIsActive] = useState(false);
   const [searchText, setSearchText] = useState("");
+
+  const RestaurantWithOffers = withOffersLabel(RestaurantCard);
 
   return restaurantList.length === 0 ? (
     <Shimmer />
@@ -63,7 +65,13 @@ const Home = () => {
               to={"restaurant/" + restaurant.info.id}
               key={restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />
+              {restaurant?.info?.aggregatedDiscountInfoV3 &&
+              Object.keys(restaurant?.info?.aggregatedDiscountInfoV3).length >
+                0 ? (
+                <RestaurantWithOffers resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
             </Link>
           ))}
         </div>
