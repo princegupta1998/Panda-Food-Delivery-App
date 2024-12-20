@@ -1,11 +1,13 @@
-import { useState } from "react";
 import { CDN_URL } from "../../utils/constants";
 
 const RestaurantMenuList = ({ items }) => {
   return (
     <div>
       {items.map((item) => (
-        <div className="flex justify-between gap-10 border-b-2 pt-6 pb-8 border-col border-gray-200">
+        <div
+          key={item?.card?.info?.id}
+          className="flex justify-between gap-10 border-b-2 pt-6 pb-8 border-col border-gray-200"
+        >
           <div className="w-9/12">
             <h3 className="text-lg font-bold">{item?.card?.info?.name}</h3>
             <p className="mb-3 text-gray-900 font-semibold">
