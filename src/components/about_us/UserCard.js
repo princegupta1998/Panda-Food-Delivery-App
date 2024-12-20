@@ -12,11 +12,11 @@ class UserCard extends Component {
         bio: userBio,
       },
     };
-    console.log("Child Constructor Called");
+    // console.log("Child Constructor Called");
   }
 
   async componentDidMount() {
-    console.log("Child ComponentDidMount Called");
+    // console.log("Child ComponentDidMount Called");
     const data = await fetch("https://api.github.com/users/princegupta1998");
     const json = await data.json();
     this.setState({
@@ -25,11 +25,11 @@ class UserCard extends Component {
   }
 
   componentWillUnmount() {
-    console.log("child componentWillUnmounte");
+    // console.log("child componentWillUnmounte");
   }
 
   render() {
-    console.log("Child render method Called");
+    // console.log("Child render method Called");
 
     const { designation } = this.props;
     const { name, avatar_url, bio } = this.state.userInfo;

@@ -1,11 +1,13 @@
 import "./header.css";
 import Logo from "../../assets/images/Panda_logo.webp";
 import CratIcon from "../../assets/svgs/cart_icon.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../utils/UserContext";
 
 const Header = () => {
   const [btnaccount, setBtnAccount] = useState("Login");
+  const { loggedInUser } = useContext(UserContext);
 
   return (
     <header id="header">
@@ -42,6 +44,7 @@ const Header = () => {
             >
               {btnaccount}
             </button>
+            <li className="nav-item -ml-4">{loggedInUser}</li>
           </ul>
         </nav>
       </div>

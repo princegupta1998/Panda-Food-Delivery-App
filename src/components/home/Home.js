@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./home.css";
 import RestaurantCard, { withOffersLabel } from "../restaurant/RestaurantCard";
 import Shimmer from "../shimmerUI/Shimmer";
 import { Link } from "react-router-dom";
 import useRestaurantList from "../../utils/useRestaurantList";
+import UserContext from "../../utils/UserContext";
 
 const Home = () => {
   const { restaurantList, filterdRestaurant, setFilterdRestaurant } =
@@ -12,6 +13,7 @@ const Home = () => {
   const [searchText, setSearchText] = useState("");
 
   const RestaurantWithOffers = withOffersLabel(RestaurantCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   return restaurantList.length === 0 ? (
     <Shimmer />
@@ -58,6 +60,18 @@ const Home = () => {
           >
             Rating 4.0+
           </button>
+          <div>
+            <label>Username:</label>
+            <input
+              className="p-3 ml-2 rounded-full border"
+              type="text"
+              placeholder="Enter your username"
+              value={loggedInUser}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
+            />
+          </div>
         </div>
         <div className="res-cards">
           {filterdRestaurant.map((restaurant) => (

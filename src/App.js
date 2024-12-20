@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./App.css";
 import Header from "../src/components/header/Header";
@@ -10,11 +10,22 @@ import Error from "./components/error_page/Error";
 import RestaurantDetails from "./components/restaurant/RestaurantDetails";
 import useCheckInternet from "./utils/useCheckInternet";
 import Shimmer from "./components/shimmerUI/Shimmer";
+import UserContext from "./utils/UserContext";
+
 // Lazyloading of our component(code splitting/chunking)
 const AboutUs = lazy(() => import("./components/about_us/AboutUs"));
 
 const App = () => {
   const onlineStatus = useCheckInternet();
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Prince",
+    };
+    setUserName(data.name);
+  }, []);
+
   if (onlineStatus === false)
     return (
       <h1 className="container">
@@ -23,11 +34,13 @@ const App = () => {
     );
 
   return (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div>
+        <Header />
+        <Outlet />
+        <Footer />
+      </div>
+    </UserContext.Provider>
   );
 };
 

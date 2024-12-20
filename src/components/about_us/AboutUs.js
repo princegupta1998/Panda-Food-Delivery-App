@@ -2,6 +2,7 @@ import React from "react";
 import "./aboutus.css";
 import AboutImg from "../../assets/images/About_us.webp";
 import UserCard from "./UserCard.js";
+import UserContext from "../../utils/UserContext.js";
 
 class AboutUs extends React.Component {
   constructor(props) {
@@ -9,23 +10,23 @@ class AboutUs extends React.Component {
     this.state = {
       vote: 0,
     };
-    console.log("Parent Constructor Called");
+    // console.log("Parent Constructor Called");
   }
 
   componentDidMount() {
     this.timer = setInterval(() => {
-      console.log("Hello i am from setinterval");
+      // console.log("Hello i am from setinterval");
     }, 1000);
-    console.log("Parent ComponentDidMount Called");
+    // console.log("Parent ComponentDidMount Called");
   }
 
   componentWillUnmount() {
     clearInterval(this.timer);
-    console.log("Parent componentWillUnmounte");
+    // console.log("Parent componentWillUnmounte");
   }
 
   render() {
-    console.log("Parent Render Method called");
+    // console.log("Parent Render Method called");
     const { title } = this.props;
     const { vote } = this.state;
 
@@ -36,7 +37,10 @@ class AboutUs extends React.Component {
             <img src={AboutImg} alt="About Us" loading="lazy"></img>
           </div>
           <div className="about-content">
-            <span>About Us</span>
+            <span>About Us - </span>
+            <UserContext.Consumer>
+              {({ loggedInUser }) => <span>{loggedInUser}</span>}
+            </UserContext.Consumer>
             <h2>{title}</h2>
             <p>
               I am a dedicated developer focused on creating a seamless online
